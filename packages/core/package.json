@@ -1,0 +1,29 @@
+{
+  "name": "@lore/core",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "rm -rf dist && tsc",
+    "dev": "tsc -w"
+  },
+  "dependencies": {
+    "chokidar": "^4.0.3",
+    "@ai-sdk/anthropic": "^2.0.63",
+    "@ai-sdk/google": "^2.0.53",
+    "@ai-sdk/openai": "^2.0.91",
+    "@ai-sdk/openai-compatible": "^1.0.33",
+    "@ai-sdk/provider": "^2.0.1",
+    "@lore/shared": "workspace:*",
+    "@openrouter/ai-sdk-provider": "^1.2.6",
+    "ai": "^5.0.133",
+    "ollama-ai-provider-v2": "^1.5.4",
+    "zod": "^3.24.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "typescript": "^5.9.3"
+  }
+}

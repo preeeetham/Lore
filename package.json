@@ -1,0 +1,24 @@
+{
+  "name": "lore",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "workspaces": ["packages/*", "apps/*"],
+  "scripts": {
+    "dev": "bun run deps && concurrently -k \"bun run renderer\" \"bun run main\"",
+    "renderer": "bun run --cwd apps/renderer dev",
+    "shared": "bun run --cwd packages/shared build",
+    "core": "bun run --cwd packages/core build",
+    "preload": "bun run --cwd apps/preload build",
+    "deps": "bun run shared && bun run core && bun run preload",
+    "main": "wait-on http://localhost:5173 && bun run --cwd apps/main build && bun run --cwd apps/main start",
+    "api": "bun run --cwd apps/api dev",
+    "build": "bun run deps && bun run --cwd apps/renderer build && bun run --cwd apps/main build",
+    "lint": "eslint ."
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.1",
+    "wait-on": "^9.0.3",
+    "typescript": "~5.9.3"
+  }
+}

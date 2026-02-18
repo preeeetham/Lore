@@ -18,8 +18,56 @@ Unlike generic AI assistants that start cold every session, Lore accumulates con
 - **MCP Tool Support** — Extend Lore with external tools via Model Context Protocol (Slack, GitHub, Linear, Exa, ElevenLabs, and more).
 - **Local-First** — All your data lives on your machine as plain Markdown. No cloud lock-in, no hidden formats. Inspect, edit, or delete anything at any time.
 
-
 Inspired by [Rowboat](https://github.com/rowboatlabs/rowboat) — reimagined and rebuilt from the ground up.
+
+---
+
+## 🚀 Quick Start
+
+### Prerequisites
+
+- Node.js 20+
+- pnpm 9+
+
+### Install & Run
+
+```bash
+pnpm install
+pnpm run dev
+```
+
+This starts the Vite dev server and Electron app. The workspace lives at `~/.lore/` by default (override with `LORE_HOME`).
+
+### Scripts
+
+| Command | Description |
+|---------|-------------|
+| `pnpm run dev` | Start Electron app with hot-reload (renderer + main) |
+| `pnpm run deps` | Build shared, core, preload packages |
+| `pnpm run api` | Run Hono API server (standalone) |
+| `pnpm run build` | Full production build |
+
+---
+
+## 📁 Project Structure
+
+```
+Lore/
+├── packages/
+│   ├── shared/     # Zod schemas (workspace, models, runs, IPC, agents)
+│   └── core/       # Config, workspace, models provider, AI
+├── apps/
+│   ├── api/        # Hono API (config, workspace, models routes)
+│   ├── main/       # Electron main process + IPC
+│   ├── preload/    # Electron preload bridge
+│   └── renderer/   # React 19 + Vite + Tailwind + Radix UI
+```
+
+---
+
+## 🎨 Theme
+
+Lore supports **Light**, **Dark**, and **System** themes. The theme is persisted in `localStorage` (`lore-theme`). Use the theme selector in the header to switch.
 
 ---
 
